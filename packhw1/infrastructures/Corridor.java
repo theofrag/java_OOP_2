@@ -17,4 +17,6 @@ public class Corridor extends Space{
         students.removeLast();
         return temp;
     }
+
+
 }

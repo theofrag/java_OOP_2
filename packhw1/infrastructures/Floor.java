@@ -3,9 +3,9 @@ import packhw1.persons.Student;
 import packhw1.persons.Teacher;
 
 public class Floor extends Trasplace{
-    Classroom [] classrooms = new Classroom[6];
-    Corridor corridor= new Corridor();
-    int floorId;
+    Classroom [] classrooms = new Classroom[6]; //καθε οροφος εχει 6 ταξεις
+    Corridor corridor= new Corridor();  //εναν διαδρομο
+    int floorId;    //και ενα id που δειχνει ποιος οροφος ειναι
 
     Floor(int Cclass, int floorId){
         for(int i=0;i<6;i++)
@@ -35,19 +35,24 @@ public class Floor extends Trasplace{
     }
     public Student exit(){
 
-        for(int i=0;i<6;i++){
-            Student temp=this.classrooms[i].exit();
-            if(temp==null)
+        for(int i=0;i<6;i++){   //Για καθε μια απο τις 6 ταξεις
+            Student temp=this.classrooms[i].exit();    //Βγαζω τον μαθητη απο την ταξη
+            if(temp==null)  //Αν επιστραφει null, σημαινει πως η ταξη δεν εχει αλλον μαθητη, αρα πηγαινω στην επομενη ταξη
                 continue;
             else{
                 System.out.println(temp.get_name()+ " starts exiting!");
-                this.corridor.enter(temp);
-                temp = this.corridor.exit();
-
-                return temp;
+                this.corridor.enter(temp);  //Βγηκε απο την ταξη, μπαινει στον οροφο
+                temp = this.corridor.exit();    //Βγαινει απο το οροφο, εκτυπωνει μηνυμα.
+                return temp;    //επιστρεφει τον μαθητη.
             }
         }
         return null;
     }
+
+    public void teachers_out(){
+        for(int i=0;i<6;i++)
+            this.classrooms[i].teacher_out();
+    }
+
 
 }

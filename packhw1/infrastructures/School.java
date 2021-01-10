@@ -38,24 +38,19 @@ public class School extends Trasplace{
     }
 
     public void empty(){
-
-        for(int i=0;i<3;i++){
-            Student temp = this.floors[i].exit();
-
-            while(temp!=null){
-                this.stairs.enter(temp);
-                temp=this.stairs.exit();
-                this.schoolyard.enter(temp);
-                temp = this.schoolyard.exit();
-                temp=this.floors[i].exit();
+        for(int i=0;i<3;i++){   //Για καθε οροφο 0,1,2
+            Student temp = this.floors[i].exit();   //Καλω την exit του οροφου
+            while(temp!=null){  //Aν γινει null ο i οροφος, δεν εχει αλλους μαθητες
+                this.stairs.enter(temp);    //Αφου ο μαθητης βγηκε απο τον οροφο, μπαινει στις σκαλες
+                temp=this.stairs.exit();    //βγαινει απο τις σκαλες, μπαινει στο προαυλιο
+                this.schoolyard.enter(temp);    
+                temp = this.schoolyard.exit();  //βγαινει απο το προαυλιο
+                temp=this.floors[i].exit(); //βγαζω τον επομενο μαθητη που ειναι η σειρα του να βγει
             }
-            
         }
+
+        for(int i=0;i<3;i++)    //Τελος βγαζω τους δασκαλους
+            this.floors[i].teachers_out();
     }
-
-
-
-
-
 
 }

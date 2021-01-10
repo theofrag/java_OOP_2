@@ -1,9 +1,12 @@
 package packhw1.persons;
 
+
+
 public abstract class Academic extends Human{
 
-    protected int floorId, classId;
-    protected boolean inClassroom=false;
+    protected int floorId, classId; //αριθμος οροφου, αριθμος αιθουσας
+    protected boolean inClassroom=false; //αν ειναι στην ταξη του == true
+    protected int fatigue=0;
 
     Academic(String name, int floorId, int classId){
         super(name);
@@ -22,4 +25,5 @@ public abstract class Academic extends Human{
     public int  get_class_id() {
         return this.classId ;
     }
+    public boolean get_inClassroom() {return this.inClassroom;}
  }

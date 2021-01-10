@@ -5,11 +5,11 @@ import java.util.LinkedList;
 
 public class Classroom extends Trasplace{
 
-    private int Cclass;
-    private int floorId;
-    private int classId;
-    private Teacher teacher;
-    private LinkedList <Student> students =new LinkedList <Student>();
+    private int Cclass; //Χωρητικοτητα ταξης
+    private int floorId;    //Αριθμος οροφου που ανηκει η ταξη
+    private int classId;    //αριθμος ταξης
+    private Teacher teacher; 
+    private LinkedList <Student> students =new LinkedList <Student>();  //αποθηκευει τους μαθητες της ταξης
 
     Classroom(int C,int floorId, int classId){
         this.Cclass=C;
@@ -59,8 +59,18 @@ public class Classroom extends Trasplace{
        return this.students.removeLast();
 
     }
+    
     public int available_space(){
         return this.Cclass - this.students.size();
+    }
+
+    public void teacher_out(){
+        if(this.teacher==null)
+            return;
+        System.out.println(this.teacher.get_name()+ " teacher is out!");
+        this.teacher.set_inClass(false);
+        this.teacher=null;
+
     }
 
 }
