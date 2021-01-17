@@ -7,11 +7,11 @@ import packhw1.infrastructures.*;
 public class Hw1 {
     public static void main(String[] args) {
         final int MAX=18;
-        int Cclass = 1; // Integer.parseInt(args[1]);
-        int Lj = 2;     // Integer.parseInt(args[2]);
-        int Ls = 3;      // Integer.parseInt(args[3]);
-        int Lt = 5;      // Integer.parseInt(args[4]);
-        // int N
+        int Cclass = Integer.parseInt(args[0]);
+        int Lj = Integer.parseInt(args[1]);
+        int Ls = Integer.parseInt(args[2]);
+        int Lt = Integer.parseInt(args[3]);
+        int N = Integer.parseInt(args[4]);
         
         School school= new School(Cclass);  //Δημιουργω ενα σχολειο
         Teacher [] teachers= new Teacher[MAX];   //Δημιουργω 18 καθηγητες
@@ -87,7 +87,7 @@ public class Hw1 {
     }
 
 
-    school.operate(10);
+    school.operate(N);
     school.print();
     school.empty();
     }

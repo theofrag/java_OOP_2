@@ -8,8 +8,11 @@ public class Floor extends Trasplace{
     int floorId;    //και ενα id που δειχνει ποιος οροφος ειναι
 
     Floor(int Cclass, int floorId){
+        this.floorId=floorId;
         for(int i=0;i<6;i++)
             this.classrooms[i]= new Classroom(Cclass, floorId, i);
+        System.out.println("A new Floor has been constructed");
+
     }
     public void enter(Student s){
         System.out.println(s.get_name()+ " enter Floor!");
